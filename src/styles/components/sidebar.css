@@ -1,0 +1,151 @@
+.sidebar {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  width: 30%;
+  background-color: var(--sidebar-bg);
+  border-right: 1px solid var(--border-color);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.sidebar__header-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.sidebar__content {
+  margin: 20px 0;
+  flex: 1; 
+  overflow-y: scroll;
+}
+
+.sidebar__list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sidebar__header-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  background-color: #42b883;
+  border-radius: 5px;
+}
+
+.sidebar__content-item {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.sidebar__content-item_active {
+  background-color: #42b883;
+  border-radius: 5px;
+}
+
+.sidebar-item-settings {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px 0;
+  margin: 0 0 20px 0;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-item-settings__title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.sidebar-item-settings__color {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sidebar-item-settings__size {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sidebar-item-settings__position {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sidebar-item-settings__input {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #e9ecef;
+  border-radius: 5px;
+}
+
+.sidebar-item-settings__input_color {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #e9ecef;
+  border-radius: 5px;
+}
+
+.sidebar-item-settings__input_number {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #e9ecef;
+  border-radius: 5px;
+} 
+
+.sidebar__list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.sidebar__content-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.sidebar__content-item-name {
+  flex: 1;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.sidebar__content-delete {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sidebar__content-delete-button {
+  padding: 5px 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  background-color: #42b883;
+  border-radius: 5px;
+}
