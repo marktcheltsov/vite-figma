@@ -7,3 +7,5 @@ export interface Rectangle {
   height: number;
   color: string;
 }
+
+export type ResizeDirection = 'right' | 'left' | 'top' | 'bottom' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right'

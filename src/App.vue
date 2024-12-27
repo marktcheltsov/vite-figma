@@ -10,3 +10,11 @@ import TheSandbox from './components/sandbox/sandbox.vue'
   </div>
 </template>
 
+<style>
+  .main-layout {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+  }
+
+</style>

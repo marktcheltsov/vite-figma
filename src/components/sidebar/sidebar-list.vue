@@ -12,8 +12,30 @@
 
 <script setup lang="ts">
 import SidebarItem from './sidebar-item.vue';
-import { Rectangle } from '../../types/interfaces';
+import { Rectangle } from '@/types/interfaces';
 
 const { items } = defineProps<{items: Rectangle[]}>();  
 
+
 </script>
+
+<style scoped>
+.sidebar__content {
+    margin: 20px 0;
+    flex: 1;
+    overflow-y: scroll;
+}
+
+.sidebar__list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+}
+</style>

@@ -1,6 +1,6 @@
 <template>
     <div v-if="selectedRectangle" class="sidebar-item-settings">
-        <h2 class="sidebar-item-settings__title">{{ selectedRectangle.name }}</h2>
+        <h2 class="sidebar-item-settings__title ">{{ selectedRectangle.name }}</h2>
         <div class="sidebar-item-settings__color">
             <label for="color">Color</label>
             <input 
@@ -41,10 +41,55 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-import { store } from '../../store/items';
+import { useRectangleGetters } from '@/store/getters';
 
-const selectedRectangle = computed(() => 
-    store.rectangles.find(rect => rect.id === store.selectedId)
-);
+const { selectedRectangle } = useRectangleGetters();
+
 </script>
+
+<style scoped>
+.sidebar-item-settings {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px 0;
+  margin: 0 0 20px 0;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+
+  &__title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  &__color,
+  &__size,
+  &__position {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #e9ecef;
+    border-radius: 5px;
+
+    &_color {
+      width: 100%;
+      padding: 5px;
+      border: 1px solid #e9ecef;
+      border-radius: 5px;
+    }
+
+    &_number {
+      width: 100%;
+      padding: 5px;
+      border: 1px solid #e9ecef;
+      border-radius: 5px;
+    }
+  }
+}
+</style>

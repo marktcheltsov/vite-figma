@@ -1,6 +1,6 @@
 # Vue 3 + TypeScript + Vite
 
- ссылка на проект: https://superlative-pothos-837197.netlify.app/
+ ссылка на проект: https://ornate-lollipop-adf86a.netlify.app/
 
 ---
 

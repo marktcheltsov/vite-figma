@@ -1,39 +1,29 @@
-import { ref } from 'vue'
-import { store } from '../store/items'
+import { onMounted, onUnmounted, ref } from 'vue'
+import { Rectangle } from '@/types/interfaces'
 
-export function useDraggable() {
+interface DragOptions {
+  targetRef: HTMLElement | null
+  item: Rectangle
+}
+
+export function useDraggable({ targetRef, item }: DragOptions) {
   const isDragging = ref(false)
   const startX = ref(0)
   const startY = ref(0)
 
-  const handleMouseDown = (e: MouseEvent, itemId: string) => {
+  const handleMouseDown = (e: MouseEvent) => {
     isDragging.value = true
-    store.selectedId = itemId
-    
     startX.value = e.clientX
     startY.value = e.clientY
-
-    const item = store.rectangles.find(r => r.id === itemId)
-
-    if (item) {
-      startX.value -= item.x
-      startY.value -= item.y
-    }
-
+    startX.value -= item.x
+    startY.value -= item.y
   }
 
   const handleMouseMove = (e: MouseEvent) => {
-    if (!isDragging.value || !store.selectedId) return
-    
-    const item = store.rectangles.find(r => r.id === store.selectedId)
+    if (!isDragging.value) return
+    if (!targetRef) return
 
-    if (!item) return
-
-    const sandbox = document.querySelector('.sand-box__content')
-    
-    if (!sandbox) return
-
-    const bounds = sandbox.getBoundingClientRect()
+    const bounds = targetRef.getBoundingClientRect()
     const newX = e.clientX - startX.value
     const newY = e.clientY - startY.value
 
@@ -45,6 +35,17 @@ export function useDraggable() {
     isDragging.value = false
   }
 
+  onMounted(() => {
+    if (!targetRef) return  
+    targetRef.addEventListener('mousemove', handleMouseMove);
+    targetRef.addEventListener('mouseup', handleMouseUp);
+  })
+
+  onUnmounted(() => {
+    if (!targetRef) return
+    targetRef.removeEventListener('mousemove', handleMouseMove);
+    targetRef.removeEventListener('mouseup', handleMouseUp);
+  })
 
   return {
     handleMouseDown,
